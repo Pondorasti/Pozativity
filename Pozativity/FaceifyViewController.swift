@@ -15,13 +15,15 @@ class FaceifyViewController: UIViewController {
 
     @IBOutlet weak var scanButton: UIButton!
     
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var informationLabel: UILabel!
+    
     @IBAction func scanButtonPressed(_ sender: Any) {
         guard UIImagePickerController.isCameraDeviceAvailable(.front) ||
             UIImagePickerController.isCameraDeviceAvailable(.rear) else { return }
         
         imagePicker.sourceType = .camera
         present(imagePicker, animated: true)
-
     }
     
     var imagePicker = UIImagePickerController()
@@ -30,9 +32,21 @@ class FaceifyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Sign-in Document"
+        
+        informationLabel.text = "Verify identity by scanning your id card, make sure you take a clear picture."
+        informationLabel.textColor = UIColor.mgSubtitle
+        
+        view.backgroundColor = .mgGray
+        
         imagePicker.delegate = self
+        
+        containerView.layer.cornerRadius = Constants.cornerRadius
+        containerView.layer.setUpShadow()
+        
+        scanButton.setUp(withColor: .mgInformative)
+        scanButton.layer.setUpShadow()
     }
-    
 
 }
 

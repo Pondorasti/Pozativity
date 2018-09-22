@@ -11,5 +11,6 @@ target 'Pozativity' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/MLVision'
+  pod 'Alamofire', '~> 4.7'
 
 end
