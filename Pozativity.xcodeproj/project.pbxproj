@@ -20,6 +20,8 @@
 		C59404FB2156AE80008857E6 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FA2156AE80008857E6 /* Contract.swift */; };
 		C59404FD2156B90E008857E6 /* DetailedContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FC2156B90E008857E6 /* DetailedContractViewController.swift */; };
 		C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FF2156BE4F008857E6 /* PDFViewController.swift */; };
+		C59405042156DA2C008857E6 /* FaceifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59405032156DA2C008857E6 /* FaceifyViewController.swift */; };
+		C59405062156EA57008857E6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59405052156EA57008857E6 /* Helper.swift */; };
 		C5F50FFD215695920060362F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFC215695920060362F /* UserService.swift */; };
 		C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFE2156A10E0060362F /* StorageService.swift */; };
 		C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F510012156A1780060362F /* ContractTableViewCell.swift */; };
@@ -42,6 +44,8 @@
 		C59404FA2156AE80008857E6 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		C59404FC2156B90E008857E6 /* DetailedContractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedContractViewController.swift; sourceTree = "<group>"; };
 		C59404FF2156BE4F008857E6 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		C59405032156DA2C008857E6 /* FaceifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceifyViewController.swift; sourceTree = "<group>"; };
+		C59405052156EA57008857E6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C5F50FFC215695920060362F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C5F50FFE2156A10E0060362F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		C5F510012156A1780060362F /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				C5475D5721567445006BA324 /* LaunchScreen.storyboard */,
 				C5475D5A21567445006BA324 /* Info.plist */,
 				C59404F62156AAEC008857E6 /* contract1.pdf */,
+				C59405052156EA57008857E6 /* Helper.swift */,
 			);
 			path = Pozativity;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C59404FC2156B90E008857E6 /* DetailedContractViewController.swift */,
+				C59405032156DA2C008857E6 /* FaceifyViewController.swift */,
 			);
 			name = DetailedContract;
 			sourceTree = "<group>";
@@ -274,14 +280,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Pozativity/Pods-Pozativity-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -297,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C59405042156DA2C008857E6 /* FaceifyViewController.swift in Sources */,
 				C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */,
 				C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */,
 				C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */,
@@ -306,6 +319,7 @@
 				C5475D4F21567445006BA324 /* AppDelegate.swift in Sources */,
 				C59404FB2156AE80008857E6 /* Contract.swift in Sources */,
 				C5F510042156A18E0060362F /* HomeViewController.swift in Sources */,
+				C59405062156EA57008857E6 /* Helper.swift in Sources */,
 				C59404FD2156B90E008857E6 /* DetailedContractViewController.swift in Sources */,
 				C5475D6821567E43006BA324 /* User.swift in Sources */,
 			);

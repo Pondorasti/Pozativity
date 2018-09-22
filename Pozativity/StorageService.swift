@@ -9,6 +9,7 @@
 import Foundation
 import PDFKit
 import FirebaseStorage
+import UIKit
 
 struct StorageService {
     static func uploadContract(_ contract: PDFDocument, at reference: StorageReference, completion: @escaping (URL?) -> ()) {
@@ -35,4 +36,29 @@ struct StorageService {
             })
         }
     }
+    
+    static func uploadBuletin(_ buletinImage: UIImage, at reference: StorageReference, completion: @escaping (URL?) -> ()) {
+    
+        guard let imageData = buletinImage.jpegData(compressionQuality: 1.0) else {
+            return completion(nil)
+        }
+        
+        reference.putData(imageData, metadata: nil) { (_, error) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                return completion(nil)
+            }
+            
+            reference.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                    return completion(nil)
+                }
+                
+                completion(url)
+            })
+        }
+    }
+    
+    
 }

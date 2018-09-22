@@ -21,6 +21,21 @@ class ContractTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.selectionStyle = .none
+        layer.masksToBounds = false
+        
+        titleLabel.textColor = .mgTitle
+        contractorLabel.textColor = .mgSubtitle
+        
+        deadlineDateLabel.textColor = .mgVodafone
+        deadlineTitleLabel.textColor = .mgVodafone
+        
+        contentView.backgroundColor = UIColor.mgGray
+        containerView.backgroundColor = UIColor.mgWhite
+        
+        containerView.layer.cornerRadius = Constants.cornerRadius
+        containerView.layer.setUpShadow()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

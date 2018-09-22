@@ -21,7 +21,9 @@ class HomeViewController: UIViewController {
 
         contractsTableView.dataSource = self
         contractsTableView.delegate = self
-        contractsTableView.rowHeight = 104
+        contractsTableView.rowHeight = 96
+        contractsTableView.separatorStyle = .none
+        contractsTableView.backgroundColor = .mgGray
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContract))
         
