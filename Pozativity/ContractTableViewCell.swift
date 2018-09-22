@@ -11,10 +11,13 @@ import UIKit
 class ContractTableViewCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var deadlineTitleLabel: UILabel!
     @IBOutlet weak var deadlineDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -34,6 +34,12 @@ class LogInViewController: UIViewController {
             
             if let firUser = result?.user {
                 UserService.retrieveUser(for: firUser.uid, completion: { (user) in
+                    guard let user = user else {
+                        assertionFailure("no user")
+                        return
+                    }
+        
+                    User.setCurrent(user)
                     self.performSegue(withIdentifier: "showHomeScreen", sender: self)
                 })
             } else {

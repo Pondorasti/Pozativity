@@ -7,24 +7,53 @@
 //
 
 import UIKit
+import PDFKit
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var contractsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        contractsTableView.dataSource = self
+        contractsTableView.delegate = self
+        contractsTableView.rowHeight = 104
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContract))
     }
     
+    @objc func addContract() {
+        guard let path = Bundle.main.url(forResource: "contract1", withExtension: "pdf"),
+            let document = PDFDocument(url: path) else { return }
+        
+        ContractService.createContract(with: document, deadline: "12.12.12", contractor: "Alex", title: "Abonament Metrou") { (contract) in
+            print(contract)
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+}
 
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //TODO: fix this
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = contractsTableView.dequeueReusableCell(withIdentifier: "contractsCell", for: indexPath) as? ContractTableViewCell else {
+            assertionFailure("unknown cell")
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
+    
+    
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
 }
