@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var contractsTableView: UITableView!
     
+    var contracts = [Contract]()
+    var selectedRowIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,11 @@ class HomeViewController: UIViewController {
         contractsTableView.rowHeight = 104
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContract))
+        
+        ContractService.retrieveContracts { (contracts) in
+            self.contracts = contracts
+            self.contractsTableView.reloadData()
+        }
     }
     
     @objc func addContract() {
@@ -30,16 +38,29 @@ class HomeViewController: UIViewController {
         ContractService.createContract(with: document, deadline: "12.12.12", contractor: "Alex", title: "Abonament Metrou") { (contract) in
             print(contract)
         }
-
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let id = segue.identifier
+        
+        switch id {
+        case "showDetailedContract":
+            guard let destination = segue.destination as? DetailedContractViewController else {
+                fatalError("el problemo segue")
+            }
+            
+            destination.contract = contracts[selectedRowIndex]
+        default:
+            fatalError("unknown id")
+        }
+    }
 }
 
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO: fix this
-        return 10
+        return contracts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,6 +69,12 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
+        let contract = contracts[indexPath.row]
+        
+        cell.titleLabel.text = contract.title
+        cell.contractorLabel.text = contract.contractor
+        cell.deadlineDateLabel.text = contract.deadline
+        
         return cell
     }
     
@@ -55,5 +82,8 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRowIndex = indexPath.row
+        performSegue(withIdentifier: "showDetailedContract", sender: self)
+    }
 }

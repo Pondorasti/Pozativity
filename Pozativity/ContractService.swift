@@ -33,4 +33,24 @@ struct ContractService {
             })
         }
     }
+    
+    static func retrieveContracts(completion: @escaping ([Contract]) -> ()) {
+        let ref = Database.database().reference().child("contracts")
+        
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            guard let snapshotValues = snapshot.children.allObjects as? [DataSnapshot] else {
+                fatalError("el problemo")
+            }
+            
+            let contracts: [Contract] = snapshotValues.compactMap({ (snapshot) -> Contract in
+                guard let contract = Contract(snapshot: snapshot) else {
+                    fatalError("second el problemo")
+                }
+                
+                return contract
+            })
+            
+            completion(contracts)
+        }
+    }
 }

@@ -18,6 +18,8 @@
 		C59404F72156AAEC008857E6 /* contract1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C59404F62156AAEC008857E6 /* contract1.pdf */; };
 		C59404F92156ADD4008857E6 /* ContractService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404F82156ADD4008857E6 /* ContractService.swift */; };
 		C59404FB2156AE80008857E6 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FA2156AE80008857E6 /* Contract.swift */; };
+		C59404FD2156B90E008857E6 /* DetailedContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FC2156B90E008857E6 /* DetailedContractViewController.swift */; };
+		C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FF2156BE4F008857E6 /* PDFViewController.swift */; };
 		C5F50FFD215695920060362F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFC215695920060362F /* UserService.swift */; };
 		C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFE2156A10E0060362F /* StorageService.swift */; };
 		C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F510012156A1780060362F /* ContractTableViewCell.swift */; };
@@ -38,6 +40,8 @@
 		C59404F62156AAEC008857E6 /* contract1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = contract1.pdf; sourceTree = "<group>"; };
 		C59404F82156ADD4008857E6 /* ContractService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractService.swift; sourceTree = "<group>"; };
 		C59404FA2156AE80008857E6 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		C59404FC2156B90E008857E6 /* DetailedContractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedContractViewController.swift; sourceTree = "<group>"; };
+		C59404FF2156BE4F008857E6 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		C5F50FFC215695920060362F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C5F50FFE2156A10E0060362F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		C5F510012156A1780060362F /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 			children = (
 				C5F510062156A1A60060362F /* LogIn/SignUp */,
 				C5F510052156A1980060362F /* Home */,
+				C59404FE2156B911008857E6 /* DetailedContract */,
+				C59404FF2156BE4F008857E6 /* PDFViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -126,6 +132,14 @@
 				C59404FA2156AE80008857E6 /* Contract.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		C59404FE2156B911008857E6 /* DetailedContract */ = {
+			isa = PBXGroup;
+			children = (
+				C59404FC2156B90E008857E6 /* DetailedContractViewController.swift */,
+			);
+			name = DetailedContract;
 			sourceTree = "<group>";
 		};
 		C5F50FFB215695830060362F /* Service */ = {
@@ -284,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */,
+				C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */,
 				C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */,
 				C5F50FFD215695920060362F /* UserService.swift in Sources */,
 				C59404F92156ADD4008857E6 /* ContractService.swift in Sources */,
@@ -291,6 +306,7 @@
 				C5475D4F21567445006BA324 /* AppDelegate.swift in Sources */,
 				C59404FB2156AE80008857E6 /* Contract.swift in Sources */,
 				C5F510042156A18E0060362F /* HomeViewController.swift in Sources */,
+				C59404FD2156B90E008857E6 /* DetailedContractViewController.swift in Sources */,
 				C5475D6821567E43006BA324 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
