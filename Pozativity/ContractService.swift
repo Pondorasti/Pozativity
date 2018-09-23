@@ -37,7 +37,7 @@ struct ContractService {
     static func retrieveContracts(completion: @escaping ([Contract]) -> ()) {
         let ref = Database.database().reference().child("contracts")
         
-        ref.observeSingleEvent(of: .value) { (snapshot) in
+        ref.observe(.value) { (snapshot) in
             guard let snapshotValues = snapshot.children.allObjects as? [DataSnapshot] else {
                 fatalError("el problemo")
             }
@@ -52,5 +52,46 @@ struct ContractService {
             
             completion(contracts)
         }
+    }
+    
+    static func retrieveOldContracts(completion: @escaping ([Contract]) -> ()) {
+        let ref = Database.database().reference().child("oldContracts")
+        
+        ref.observe(.value) { (snapshot) in
+            guard let snapshotValues = snapshot.children.allObjects as? [DataSnapshot] else {
+                fatalError("el problemo")
+            }
+            
+            let contracts: [Contract] = snapshotValues.compactMap({ (snapshot) -> Contract in
+                guard let contract = Contract(snapshot: snapshot) else {
+                    fatalError("second el problemo")
+                }
+                
+                return contract
+            })
+            
+            completion(contracts)
+        }
+    }
+    
+    static func signContract(_ contract: Contract) {
+        let ref = Database.database().reference().child("contracts").child(contract.uid)
+        ref.setValue(nil)
+        
+        let ref2 = Database.database().reference().child("oldContracts").child(contract.uid)
+        
+        let oldContract = Contract(uid: contract.uid, deadline: contract.deadline, contractor: contract.contractor, pdfURL: contract.pdfURL, title: contract.title, state: .signed)
+        ref2.updateChildValues(oldContract.dictValue)
+    }
+    
+    
+    static func declineContract(_ contract: Contract) {
+        let ref = Database.database().reference().child("contracts").child(contract.uid)
+        ref.setValue(nil)
+        
+        let ref2 = Database.database().reference().child("oldContracts").child(contract.uid)
+        
+        let oldContract = Contract(uid: contract.uid, deadline: contract.deadline, contractor: contract.contractor, pdfURL: contract.pdfURL, title: contract.title, state: .decline)
+        ref2.updateChildValues(oldContract.dictValue)
     }
 }

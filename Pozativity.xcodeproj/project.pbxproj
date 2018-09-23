@@ -11,7 +11,6 @@
 		C5475D4F21567445006BA324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5475D4E21567445006BA324 /* AppDelegate.swift */; };
 		C5475D5121567445006BA324 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5475D5021567445006BA324 /* LogInViewController.swift */; };
 		C5475D5421567445006BA324 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5475D5221567445006BA324 /* Main.storyboard */; };
-		C5475D5621567445006BA324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5475D5521567445006BA324 /* Assets.xcassets */; };
 		C5475D5921567445006BA324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5475D5721567445006BA324 /* LaunchScreen.storyboard */; };
 		C5475D6421567547006BA324 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5475D6321567547006BA324 /* GoogleService-Info.plist */; };
 		C5475D6821567E43006BA324 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5475D6721567E43006BA324 /* User.swift */; };
@@ -22,6 +21,9 @@
 		C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59404FF2156BE4F008857E6 /* PDFViewController.swift */; };
 		C59405042156DA2C008857E6 /* FaceifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59405032156DA2C008857E6 /* FaceifyViewController.swift */; };
 		C59405062156EA57008857E6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59405052156EA57008857E6 /* Helper.swift */; };
+		C594050A21573554008857E6 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594050921573554008857E6 /* HistoryViewController.swift */; };
+		C594050C215736A5008857E6 /* OldContractsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594050B215736A5008857E6 /* OldContractsTableViewCell.swift */; };
+		C594050E21573B3C008857E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C594050D21573B3C008857E6 /* Assets.xcassets */; };
 		C5F50FFD215695920060362F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFC215695920060362F /* UserService.swift */; };
 		C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFE2156A10E0060362F /* StorageService.swift */; };
 		C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F510012156A1780060362F /* ContractTableViewCell.swift */; };
@@ -34,7 +36,6 @@
 		C5475D4E21567445006BA324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5475D5021567445006BA324 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C5475D5321567445006BA324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C5475D5521567445006BA324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5475D5821567445006BA324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5475D5A21567445006BA324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5475D6321567547006BA324 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -46,6 +47,9 @@
 		C59404FF2156BE4F008857E6 /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		C59405032156DA2C008857E6 /* FaceifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceifyViewController.swift; sourceTree = "<group>"; };
 		C59405052156EA57008857E6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		C594050921573554008857E6 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		C594050B215736A5008857E6 /* OldContractsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldContractsTableViewCell.swift; sourceTree = "<group>"; };
+		C594050D21573B3C008857E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5F50FFC215695920060362F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C5F50FFE2156A10E0060362F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		C5F510012156A1780060362F /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
@@ -101,10 +105,10 @@
 				C5475D612156745B006BA324 /* Supporting Files */,
 				C5475D6221567471006BA324 /* Controllers */,
 				C5475D5221567445006BA324 /* Main.storyboard */,
-				C5475D5521567445006BA324 /* Assets.xcassets */,
 				C5475D5721567445006BA324 /* LaunchScreen.storyboard */,
 				C5475D5A21567445006BA324 /* Info.plist */,
 				C59404F62156AAEC008857E6 /* contract1.pdf */,
+				C594050D21573B3C008857E6 /* Assets.xcassets */,
 				C59405052156EA57008857E6 /* Helper.swift */,
 			);
 			path = Pozativity;
@@ -125,6 +129,7 @@
 				C5F510062156A1A60060362F /* LogIn/SignUp */,
 				C5F510052156A1980060362F /* Home */,
 				C59404FE2156B911008857E6 /* DetailedContract */,
+				C594050821573391008857E6 /* HistoryContracts */,
 				C59404FF2156BE4F008857E6 /* PDFViewController.swift */,
 			);
 			name = Controllers;
@@ -146,6 +151,15 @@
 				C59405032156DA2C008857E6 /* FaceifyViewController.swift */,
 			);
 			name = DetailedContract;
+			sourceTree = "<group>";
+		};
+		C594050821573391008857E6 /* HistoryContracts */ = {
+			isa = PBXGroup;
+			children = (
+				C594050921573554008857E6 /* HistoryViewController.swift */,
+				C594050B215736A5008857E6 /* OldContractsTableViewCell.swift */,
+			);
+			name = HistoryContracts;
 			sourceTree = "<group>";
 		};
 		C5F50FFB215695830060362F /* Service */ = {
@@ -246,8 +260,8 @@
 				C5475D5921567445006BA324 /* LaunchScreen.storyboard in Resources */,
 				C59404F72156AAEC008857E6 /* contract1.pdf in Resources */,
 				C5475D6421567547006BA324 /* GoogleService-Info.plist in Resources */,
-				C5475D5621567445006BA324 /* Assets.xcassets in Resources */,
 				C5475D5421567445006BA324 /* Main.storyboard in Resources */,
+				C594050E21573B3C008857E6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,10 +328,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C59405042156DA2C008857E6 /* FaceifyViewController.swift in Sources */,
+				C594050C215736A5008857E6 /* OldContractsTableViewCell.swift in Sources */,
 				C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */,
 				C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */,
 				C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */,
 				C5F50FFD215695920060362F /* UserService.swift in Sources */,
+				C594050A21573554008857E6 /* HistoryViewController.swift in Sources */,
 				C59404F92156ADD4008857E6 /* ContractService.swift in Sources */,
 				C5475D5121567445006BA324 /* LogInViewController.swift in Sources */,
 				C5475D4F21567445006BA324 /* AppDelegate.swift in Sources */,

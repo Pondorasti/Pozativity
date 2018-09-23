@@ -15,13 +15,19 @@ struct Contract {
     let pdfURL: String
     let uid: String
     let title: String
+    let state: State
+    
+    enum State: Int {
+        case open, decline, signed
+    }
     
     public var dictValue: [String: Any] {
         return ["deadline": deadline,
                 "contractor": contractor,
                 "pdfURL": pdfURL,
                 "uid": uid,
-                "title": title]
+                "title": title,
+                "state": state.rawValue]
     }
     
     init(uid: String, deadline: String, contractor: String, pdfURL: String, title: String) {
@@ -30,6 +36,16 @@ struct Contract {
         self.contractor = contractor
         self.pdfURL = pdfURL
         self.title = title
+        self.state = .open
+    }
+    
+    init(uid: String, deadline: String, contractor: String, pdfURL: String, title: String, state: State) {
+        self.uid = uid
+        self.deadline = deadline
+        self.contractor = contractor
+        self.pdfURL = pdfURL
+        self.title = title
+        self.state = state
     }
     
     init?(snapshot: DataSnapshot) {
@@ -38,7 +54,8 @@ struct Contract {
             let contractor = data["contractor"] as? String,
             let pdfURL = data["pdfURL"] as? String,
             let uid = data["uid"] as? String,
-            let title = data["title"] as? String else {
+            let title = data["title"] as? String,
+            let stateValue = data["state"] as? Int else {
                 return nil
         }
         
@@ -47,5 +64,6 @@ struct Contract {
         self.contractor = contractor
         self.pdfURL = pdfURL
         self.title = title
+        self.state = State(rawValue: stateValue) ?? .open
     }
 }

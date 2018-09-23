@@ -32,9 +32,13 @@ class FaceifyViewController: UIViewController {
     var imagePicker = UIImagePickerController()
     var contract: Contract!
     var picturesTaken = 0
+    var loader = NVActivityIndicatorView(frame: CGRect())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let loaderFrame = CGRect(x: self.view.bounds.midX - 30, y: self.view.bounds.midY - 30, width: 60, height: 60)
+        loader = NVActivityIndicatorView(frame: loaderFrame, type: NVActivityIndicatorType(rawValue: 26), color: .mgDestructive, padding: nil)
         
         picturesTaken = 0
         title = "Sign Document"
@@ -54,21 +58,29 @@ class FaceifyViewController: UIViewController {
         scanButton.layer.setUpShadow()
         
         
-        let loaderFrame = CGRect(x: view.bounds.midX - 30, y: view.bounds.midY - 30, width: 60, height: 60)
-        let loader = NVActivityIndicatorView(frame: loaderFrame, type: NVActivityIndicatorType(rawValue: 26), color: .mgDestructive, padding: nil)
         
-//        view.addSubview(loader)
-//        loader.startAnimating()
     }
     
-//    guard let url = URL(string: "https://webhook.site/d3c70045-011b-4e2b-a6ef-fa145e4923f5") else {
-//    return
-//    }
-//
-//    Alamofire.request(url, method: .get, parameters: nil).validate().responseJSON { (response) in
-//    print(response.response?.statusCode)
-//    print(response.data as? [String: Any])
-//    }
+    private func showAnimation() {
+        UIView.animate(withDuration: 0.25) {
+            self.view.addSubview(self.loader)
+            self.blurView.isHidden = false
+            self.loader.startAnimating()
+        }
+    }
+    
+    private func hideAnimation() {
+        UIView.animate(withDuration: 0.25) {
+            self.loader.removeFromSuperview()
+            self.blurView.isHidden = false
+        }
+    }
+    
+    //400 problem with processing
+    //403 not matching
+    //200 we good
+    
+
 
 }
 
@@ -89,13 +101,34 @@ extension FaceifyViewController: UIImagePickerControllerDelegate {
             
             StorageService.uploadBuletin(pickedImage, at: ref) { (url) in
 
-                if self.picturesTaken == 2 {
-                    //TODO: kek with radu
-                }
+                
             }
         }
         
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            if self.picturesTaken == 2 {
+                //TODO: kek with radu
+                
+                self.showAnimation()
+                
+                guard let url = URL(string: "https://brave-frog-53.localtunnel.me/") else {
+                    return
+                }
+                
+                Alamofire.request(url, method: .get, parameters: ["id": self.contract.uid, "uid": User.current.uid] ).responseJSON { (dataResponse) in
+                    if dataResponse.response?.statusCode == 200 {
+                        ContractService.signContract(self.contract)
+                    } else if dataResponse.response?.statusCode == 403 {
+                        //not matching
+                    } else if dataResponse.response?.statusCode == 400 {
+                        //could not connect with the server
+                    }
+                    
+                    self.hideAnimation()
+                }
+                
+            }
+        }
         
     }
 }

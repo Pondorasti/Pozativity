@@ -36,6 +36,15 @@ class DetailedContractViewController: UIViewController {
     }
     
     @IBAction func declineButtonPressed(_ sender: Any) {
+        let ac = UIAlertController(title: "Decline Contract", message: "Are you sure you want to continue?", preferredStyle: .alert)
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "Decline", style: .destructive, handler: { (_) in
+            ContractService.declineContract(self.contract)
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        present(ac, animated: true)
     }
     
     var contract: Contract!
