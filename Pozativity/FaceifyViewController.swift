@@ -12,6 +12,7 @@ import Firebase
 import AVKit
 import Alamofire
 import NVActivityIndicatorView
+import Lottie
 
 class FaceifyViewController: UIViewController {
 
@@ -33,12 +34,21 @@ class FaceifyViewController: UIViewController {
     var contract: Contract!
     var picturesTaken = 0
     var loader = NVActivityIndicatorView(frame: CGRect())
+    var succesLottie = LOTAnimationView(name: "success_animation")
+    var failureLottie = LOTAnimationView(name: "error_cross")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let loaderFrame = CGRect(x: self.view.bounds.midX - 30, y: self.view.bounds.midY - 30, width: 60, height: 60)
-        loader = NVActivityIndicatorView(frame: loaderFrame, type: NVActivityIndicatorType(rawValue: 26), color: .mgDestructive, padding: nil)
+        let loaderFrame = CGRect(x: self.view.bounds.midX - 50, y: self.view.bounds.midY - 50, width: 100, height: 100)
+        
+        succesLottie.frame = loaderFrame
+        succesLottie.animationSpeed = 1
+        
+        failureLottie.frame = loaderFrame
+        failureLottie.animationSpeed = 1
+        
+        loader = NVActivityIndicatorView(frame: loaderFrame, type: NVActivityIndicatorType(rawValue: 22), color: .mgInformative, padding: nil)
         
         picturesTaken = 0
         title = "Sign Document"
@@ -49,7 +59,6 @@ class FaceifyViewController: UIViewController {
         view.backgroundColor = .mgGray
         
         imagePicker.delegate = self
-//        imagePicker.cameraDevice = .rear
         
         containerView.layer.cornerRadius = Constants.cornerRadius
         containerView.layer.setUpShadow()
@@ -57,31 +66,71 @@ class FaceifyViewController: UIViewController {
         scanButton.setUp(withColor: .mgInformative)
         scanButton.layer.setUpShadow()
         
-        
-        
+        blurView.isHidden = false
+        blurView.alpha = 0
     }
     
     private func showAnimation() {
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurView.alpha = 1
+        }) { (_) in
             self.view.addSubview(self.loader)
-            self.blurView.isHidden = false
             self.loader.startAnimating()
         }
     }
     
-    private func hideAnimation() {
-        UIView.animate(withDuration: 0.25) {
-            self.loader.removeFromSuperview()
-            self.blurView.isHidden = false
+    private func hideAnimation(andShowSucces showSucces: Bool = false) {
+        
+        loader.removeFromSuperview()
+        
+        if showSucces {
+            view.addSubview(self.succesLottie)
+            succesLottie.play(completion: { (_) in
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+            
+        } else {
+            view.addSubview(self.failureLottie)
+            failureLottie.play(completion: { (_) in
+                self.failureLottie.removeFromSuperview()
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.blurView.alpha = 0
+                }, completion: { (_) in
+                    
+                })
+            })
+            
+        }
+    }
+    
+    private func APIRequest() {
+        guard let url = URL(string: "https://rotten-bird-33.localtunnel.me/") else {
+            return
+        }
+        
+        Alamofire.request(url, method: .post, parameters: ["id": self.contract.uid, "uid": User.current.uid] ).responseJSON { (dataResponse) in
+            if dataResponse.response?.statusCode == 200 {
+                ContractService.signContract(self.contract)
+                self.hideAnimation(andShowSucces: true)
+            } else {
+                self.picturesTaken = 0
+                self.informationLabel.textColor = .mgDestructive
+                self.hideAnimation()
+                self.scanButton.setTitle("Scan again", for: .normal)
+                
+                if dataResponse.response?.statusCode == 403 {
+                    self.informationLabel.text = "Detected faces and text is not matching with our database, please try again."
+                    
+                } else if dataResponse.response?.statusCode == 400 {
+                    self.informationLabel.text = "There was an error detecting faces and scanning text, please try again a bit later"
+                }
+            }
         }
     }
     
     //400 problem with processing
     //403 not matching
     //200 we good
-    
-
-
 }
 
 extension FaceifyViewController: UIImagePickerControllerDelegate {
@@ -100,33 +149,17 @@ extension FaceifyViewController: UIImagePickerControllerDelegate {
             }
             
             StorageService.uploadBuletin(pickedImage, at: ref) { (url) in
-
-                
+                if self.picturesTaken == 2 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+                        self.APIRequest()
+                    })
+                }
             }
         }
         
         dismiss(animated: true) {
             if self.picturesTaken == 2 {
-                //TODO: kek with radu
-                
                 self.showAnimation()
-                
-                guard let url = URL(string: "https://brave-frog-53.localtunnel.me/") else {
-                    return
-                }
-                
-                Alamofire.request(url, method: .get, parameters: ["id": self.contract.uid, "uid": User.current.uid] ).responseJSON { (dataResponse) in
-                    if dataResponse.response?.statusCode == 200 {
-                        ContractService.signContract(self.contract)
-                    } else if dataResponse.response?.statusCode == 403 {
-                        //not matching
-                    } else if dataResponse.response?.statusCode == 400 {
-                        //could not connect with the server
-                    }
-                    
-                    self.hideAnimation()
-                }
-                
             }
         }
         

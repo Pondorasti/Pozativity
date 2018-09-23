@@ -13,5 +13,6 @@ target 'Pozativity' do
   pod 'Firebase/MLVision'
   pod 'Alamofire', '~> 4.7'
   pod 'NVActivityIndicatorView'
+  pod 'lottie-ios'
 
 end

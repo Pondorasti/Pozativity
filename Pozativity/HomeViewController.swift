@@ -26,8 +26,6 @@ class HomeViewController: UIViewController {
         contractsTableView.backgroundColor = .mgGray
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContract))
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +41,29 @@ class HomeViewController: UIViewController {
         guard let path = Bundle.main.url(forResource: "contract1", withExtension: "pdf"),
             let document = PDFDocument(url: path) else { return }
         
-        ContractService.createContract(with: document, deadline: "12.12.12", contractor: "Alex", title: "Abonament Metrou") { (contract) in
-            print(contract)
+        struct DummyContract {
+            var deadline: String
+            var contractor: String
+            var title: String
         }
+        
+        var dummyData: [DummyContract] = [DummyContract(deadline: "25/9/2018", contractor: "Vodafone", title: "RED 12"),
+                                          DummyContract(deadline: "29/9/1018", contractor: "Vodafone", title: "RED 15"),
+                                          DummyContract(deadline: "25/9/2018", contractor: "Vodafone", title: "RED 19"),
+                                          DummyContract(deadline: "7/10/2018", contractor: "Vodafone", title: "Super RED 25"),
+                                          DummyContract(deadline: "9/10/2018", contractor: "Vodafone", title: "Smart 8"),
+                                          DummyContract(deadline: "13/10/2018", contractor: "Vodafone", title: "Smart 10"),
+                                          DummyContract(deadline: "2/11/2018", contractor: "Vodafone", title: "Acord GDPR"),
+                                          DummyContract(deadline: "18/11/2018", contractor: "ICHB", title: "Contract Scoala")]
+        
+        dummyData.shuffle()
+        for data in dummyData {
+            ContractService.createContract(with: document, deadline: data.deadline, contractor: data.contractor, title: data.title) { (contract) in
+                print(contract)
+            }
+        }
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -35,11 +35,16 @@ class LogInViewController: UIViewController {
         }
         
         
-        let loaderFrame = CGRect(x: self.view.bounds.midX - 30, y: self.view.bounds.midY - 30, width: 60, height: 60)
-        let loader = NVActivityIndicatorView(frame: loaderFrame, type: NVActivityIndicatorType(rawValue: 30), color: .mgDestructive, padding: nil)
-        self.blurView.isHidden = false
-        self.blurView.contentView.addSubview(loader)
-        loader.startAnimating()
+        let loaderFrame = CGRect(x: self.view.bounds.midX - 50, y: self.view.bounds.midY - 50, width: 100, height: 100)
+        let loader = NVActivityIndicatorView(frame: loaderFrame, type: NVActivityIndicatorType(rawValue: 30), color: .mgInformative, padding: nil)
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurView.alpha = 1
+        }) { (_) in
+            self.blurView.contentView.addSubview(loader)
+            loader.startAnimating()
+        }
+        
         
         Auth.auth().signIn(withEmail: email, password: password) { [unowned self] (result, error) in
             if let error = error {
@@ -78,14 +83,14 @@ class LogInViewController: UIViewController {
         logInButton.setUp(withColor: .mgInformative)
         logInButton.layer.setUpShadow()
         
+        blurView.isHidden = false
+        blurView.alpha = 0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
-
-
 }
 
 

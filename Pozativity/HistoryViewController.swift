@@ -22,28 +22,18 @@ class HistoryViewController: UIViewController {
         contractsTableView.rowHeight = 96
         contractsTableView.separatorStyle = .none
         contractsTableView.backgroundColor = .mgGray
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         ContractService.retrieveOldContracts() { (contracts) in
-            self.contracts = contracts
+            self.contracts = contracts.reversed()
             self.contractsTableView.reloadData()
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension HistoryViewController: UITableViewDataSource {
