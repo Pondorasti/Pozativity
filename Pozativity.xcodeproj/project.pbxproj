@@ -26,6 +26,7 @@
 		C594050E21573B3C008857E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C594050D21573B3C008857E6 /* Assets.xcassets */; };
 		C5940514215761E4008857E6 /* error_cross.json in Resources */ = {isa = PBXBuildFile; fileRef = C5940513215761E3008857E6 /* error_cross.json */; };
 		C5940516215768CB008857E6 /* success_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = C5940515215768CA008857E6 /* success_animation.json */; };
+		C594051821577DF9008857E6 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C594051721577DF9008857E6 /* QRViewController.swift */; };
 		C5F50FFD215695920060362F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFC215695920060362F /* UserService.swift */; };
 		C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F50FFE2156A10E0060362F /* StorageService.swift */; };
 		C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F510012156A1780060362F /* ContractTableViewCell.swift */; };
@@ -54,6 +55,7 @@
 		C594050D21573B3C008857E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5940513215761E3008857E6 /* error_cross.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error_cross.json; sourceTree = "<group>"; };
 		C5940515215768CA008857E6 /* success_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success_animation.json; path = ../../../.Trash/success_animation.json; sourceTree = "<group>"; };
+		C594051721577DF9008857E6 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		C5F50FFC215695920060362F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C5F50FFE2156A10E0060362F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		C5F510012156A1780060362F /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				C59404FE2156B911008857E6 /* DetailedContract */,
 				C594050821573391008857E6 /* HistoryContracts */,
 				C59404FF2156BE4F008857E6 /* PDFViewController.swift */,
+				C594051721577DF9008857E6 /* QRViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				C59405042156DA2C008857E6 /* FaceifyViewController.swift in Sources */,
 				C594050C215736A5008857E6 /* OldContractsTableViewCell.swift in Sources */,
 				C5F50FFF2156A10E0060362F /* StorageService.swift in Sources */,
+				C594051821577DF9008857E6 /* QRViewController.swift in Sources */,
 				C59405002156BE4F008857E6 /* PDFViewController.swift in Sources */,
 				C5F510022156A1780060362F /* ContractTableViewCell.swift in Sources */,
 				C5F50FFD215695920060362F /* UserService.swift in Sources */,
@@ -508,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingbytes.Pozativity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -527,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codingbytes.Pozativity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

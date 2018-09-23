@@ -13,7 +13,7 @@ import UIKit
 
 struct StorageService {
     static func uploadContract(_ contract: PDFDocument, at reference: StorageReference, completion: @escaping (URL?) -> ()) {
-//        let ref = Storage.storage().reference().child("contracts").child(user.uid)
+
         
         guard let pdfData = contract.dataRepresentation() else {
             assertionFailure("could not get pdf")
@@ -57,6 +57,18 @@ struct StorageService {
                 
                 completion(url)
             })
+        }
+    }
+    
+    static func isUserTrusted(completion: @escaping (Bool) -> ()) {
+        let ref = Storage.storage().reference().child("trusted").child(User.current.uid)
+        
+        ref.getMetadata { (metadata, error) in
+            if let error = error {
+                completion(false)
+                assertionFailure(error.localizedDescription)
+            }
+            completion(true)
         }
     }
     

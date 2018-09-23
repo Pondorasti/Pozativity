@@ -32,19 +32,30 @@ class DetailedContractViewController: UIViewController {
     }
     
     @IBAction func signDocumentButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "showCamera", sender: self)
+        signDocumentButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.75, options: [], animations: {
+            self.signDocumentButton.transform = .identity
+        }) { (_) in
+            self.performSegue(withIdentifier: "showCamera", sender: self)
+        }
     }
     
+
     @IBAction func declineButtonPressed(_ sender: Any) {
-        let ac = UIAlertController(title: "Decline Contract", message: "Are you sure you want to continue?", preferredStyle: .alert)
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.addAction(UIAlertAction(title: "Decline", style: .destructive, handler: { (_) in
-            ContractService.declineContract(self.contract)
-            self.navigationController?.popViewController(animated: true)
-        }))
-        
-        present(ac, animated: true)
+        declineButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.75, options: [], animations: {
+            self.declineButton.transform = .identity
+        }) { (_) in
+            let ac = UIAlertController(title: "Decline Contract", message: "Are you sure you want to continue?", preferredStyle: .alert)
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "Decline", style: .destructive, handler: { (_) in
+                ContractService.declineContract(self.contract)
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            self.present(ac, animated: true)
+        }
     }
     
     var contract: Contract!
@@ -75,6 +86,8 @@ class DetailedContractViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         title = "Contract"
         view.backgroundColor = .mgGray

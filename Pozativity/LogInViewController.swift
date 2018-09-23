@@ -11,7 +11,7 @@ import NVActivityIndicatorView
 import FirebaseAuth
 
 class LogInViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var emailTitleLabel: UILabel!
     @IBOutlet weak var passwordTitleLabel: UILabel!
@@ -24,7 +24,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var logInButton: UIButton!
     
     @IBAction func logInButtonTapped(_ sender: Any) {
-        logInUser()
+        
+        logInButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.75, options: [], animations: {
+            self.logInButton.transform = .identity
+        }) { (_) in
+            self.logInUser()
+        }
     }
     
     private func logInUser() {
@@ -57,7 +63,7 @@ class LogInViewController: UIViewController {
                         assertionFailure("no user")
                         return
                     }
-        
+                    
                     User.setCurrent(user)
                     self.performSegue(withIdentifier: "showHomeScreen", sender: self)
                 })
@@ -75,6 +81,7 @@ class LogInViewController: UIViewController {
         titleLabel.textColor = .mgTitle
         emailTitleLabel.textColor = .mgTitle
         passwordTitleLabel.textColor = .mgTitle
+        passwordTextField.isSecureTextEntry = true
         
         emailTextField.layer.setUpShadow()
         passwordTextField.layer.setUpShadow()

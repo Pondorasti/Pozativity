@@ -25,9 +25,14 @@ class FaceifyViewController: UIViewController {
     @IBAction func scanButtonPressed(_ sender: Any) {
         guard UIImagePickerController.isCameraDeviceAvailable(.front) ||
             UIImagePickerController.isCameraDeviceAvailable(.rear) else { return }
-        
         imagePicker.sourceType = .camera
-        present(imagePicker, animated: true)
+        
+        scanButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.75, options: [], animations: {
+            self.scanButton.transform = .identity
+        }) { (_) in
+            self.present(self.imagePicker, animated: true)
+        }
     }
     
     var imagePicker = UIImagePickerController()

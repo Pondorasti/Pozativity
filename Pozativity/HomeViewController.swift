@@ -26,6 +26,12 @@ class HomeViewController: UIViewController {
         contractsTableView.backgroundColor = .mgGray
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContract))
+        
+        StorageService.isUserTrusted(completion: { (isTrusted) in
+            if !isTrusted {
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.showQR))
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +41,38 @@ class HomeViewController: UIViewController {
             self.contracts = contracts
             self.contractsTableView.reloadData()
         }
+    }
+    
+    @objc func showQR() {
+        let image = generateQRCode(from: User.current.uid)
+        
+        if let qrVC = storyboard?.instantiateViewController(withIdentifier: "qr") as? QRViewController {
+            qrVC.qrImage = image
+            
+            qrVC.modalPresentationStyle = .custom
+            navigationController?.pushViewController(qrVC, animated: true)
+            
+        }
+        
+        if let newVC = storyboard?.instantiateViewController(withIdentifier: "mail") {
+            
+        }
+        
+    }
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 10, y: 10)
+            
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
     }
     
     @objc func addContract() {

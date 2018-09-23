@@ -35,7 +35,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="alex@alex.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-RK-heL">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v6X-RK-heL">
                                                 <rect key="frame" x="0.0" y="24.5" width="343" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,11 +52,11 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="onA-Vc-Ny0">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="onA-Vc-Ny0">
                                                 <rect key="frame" x="0.0" y="24.5" width="343" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -626,6 +626,38 @@
             </objects>
             <point key="canvasLocation" x="1057" y="1666"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ndS-U4-8Kn">
+            <objects>
+                <viewController storyboardIdentifier="qr" id="Cjd-Jd-qNU" customClass="QRViewController" customModule="Pozativity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0QS-6Q-RT2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-Qu-0u0">
+                                <rect key="frame" x="16" y="162" width="343" height="343"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7Er-Qu-0u0" secondAttribute="height" multiplier="1:1" id="4lB-Un-9gH"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Er-Qu-0u0" firstAttribute="leading" secondItem="k8a-cl-iCM" secondAttribute="leading" constant="16" id="GLS-zJ-OOh"/>
+                            <constraint firstItem="7Er-Qu-0u0" firstAttribute="centerX" secondItem="0QS-6Q-RT2" secondAttribute="centerX" id="PFQ-Ky-SUq"/>
+                            <constraint firstItem="7Er-Qu-0u0" firstAttribute="centerY" secondItem="0QS-6Q-RT2" secondAttribute="centerY" id="gMY-w0-Cwb"/>
+                            <constraint firstItem="k8a-cl-iCM" firstAttribute="trailing" secondItem="7Er-Qu-0u0" secondAttribute="trailing" constant="16" id="vqr-3L-zAp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="k8a-cl-iCM"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrImageView" destination="7Er-Qu-0u0" id="MyV-1T-yue"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jj0-lw-CKc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-321" y="925"/>
+        </scene>
         <!--History-->
         <scene sceneID="TWY-a3-8oG">
             <objects>
@@ -647,7 +679,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="history-clock-button" width="32" height="32"/>
-        <image name="writing" width="29" height="32"/>
+        <image name="history-clock-button" width="28" height="28"/>
+        <image name="writing" width="26" height="28"/>
     </resources>
 </document>
