@@ -23,6 +23,8 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var logInButton: UIButton!
     
+    @IBOutlet weak var logInButtonBottomAnchor: NSLayoutConstraint!
+    
     @IBAction func logInButtonTapped(_ sender: Any) {
         
         logInButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
@@ -30,6 +32,7 @@ class LogInViewController: UIViewController {
             self.logInButton.transform = .identity
         }) { (_) in
             self.logInUser()
+            self.view.resignFirstResponder()
         }
     }
     
@@ -92,6 +95,23 @@ class LogInViewController: UIViewController {
         
         blurView.isHidden = false
         blurView.alpha = 0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            logInButtonBottomAnchor.constant = 24 + keyboardSize.height
+            view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            logInButtonBottomAnchor.constant = 24
+            view.layoutIfNeeded()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

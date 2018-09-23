@@ -102,6 +102,7 @@
                         <outlet property="emailTextField" destination="v6X-RK-heL" id="Vc6-yG-Nlt"/>
                         <outlet property="emailTitleLabel" destination="poJ-yB-lUb" id="8cx-zp-R0t"/>
                         <outlet property="logInButton" destination="NTJ-WW-QWb" id="M0Y-At-eC3"/>
+                        <outlet property="logInButtonBottomAnchor" destination="a0E-8o-C2G" id="9H3-EO-DbM"/>
                         <outlet property="passwordTextField" destination="onA-Vc-Ny0" id="PJG-2q-aOw"/>
                         <outlet property="passwordTitleLabel" destination="Wf7-he-F8y" id="3sX-rP-rCk"/>
                         <outlet property="titleLabel" destination="NCe-4l-3B4" id="Cj2-EJ-dWR"/>
