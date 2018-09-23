@@ -37,9 +37,9 @@ struct StorageService {
         }
     }
     
-    static func uploadBuletin(_ buletinImage: UIImage, at reference: StorageReference, completion: @escaping (URL?) -> ()) {
+    static func uploadBuletin(_ image: UIImage, at reference: StorageReference, completion: @escaping (URL?) -> ()) {
     
-        guard let imageData = buletinImage.jpegData(compressionQuality: 1.0) else {
+        guard let imageData = image.jpegData(compressionQuality: 0.69) else {
             return completion(nil)
         }
         

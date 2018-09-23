@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-4l-3B4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project - Faceify" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-4l-3B4">
                                 <rect key="frame" x="16" y="36" width="343" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
@@ -70,31 +70,47 @@
                                     <action selector="logInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U7l-dm-VtG"/>
                                 </connections>
                             </button>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lay-a1-iBq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iVa-WS-GrE">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SOf-C6-7U5" firstAttribute="top" secondItem="NCe-4l-3B4" secondAttribute="bottom" constant="32" id="7DS-is-qmN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lay-a1-iBq" secondAttribute="trailing" id="BDH-Jf-k1W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NCe-4l-3B4" secondAttribute="trailing" constant="16" id="JEI-KI-oWn"/>
+                            <constraint firstItem="Lay-a1-iBq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NRF-uq-55r"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NTJ-WW-QWb" secondAttribute="trailing" constant="16" id="NYc-Ix-J8d"/>
                             <constraint firstItem="NCe-4l-3B4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="OV6-Q3-Cdt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NTJ-WW-QWb" secondAttribute="bottom" constant="24" id="a0E-8o-C2G"/>
                             <constraint firstItem="NCe-4l-3B4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cNg-la-ocI"/>
                             <constraint firstItem="NTJ-WW-QWb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dBz-2I-6KI"/>
                             <constraint firstItem="SOf-C6-7U5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="eM4-yC-woi"/>
+                            <constraint firstItem="Lay-a1-iBq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jeB-v7-1NP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SOf-C6-7U5" secondAttribute="trailing" constant="16" id="tCH-JQ-cRa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lay-a1-iBq" secondAttribute="bottom" id="xg0-g2-0f6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="Lay-a1-iBq" id="7tq-Pd-hoG"/>
                         <outlet property="emailTextField" destination="v6X-RK-heL" id="Vc6-yG-Nlt"/>
+                        <outlet property="emailTitleLabel" destination="poJ-yB-lUb" id="8cx-zp-R0t"/>
                         <outlet property="logInButton" destination="NTJ-WW-QWb" id="M0Y-At-eC3"/>
                         <outlet property="passwordTextField" destination="onA-Vc-Ny0" id="PJG-2q-aOw"/>
+                        <outlet property="passwordTitleLabel" destination="Wf7-he-F8y" id="3sX-rP-rCk"/>
+                        <outlet property="titleLabel" destination="NCe-4l-3B4" id="Cj2-EJ-dWR"/>
                         <segue destination="c2p-fx-AtM" kind="show" identifier="showHomeScreen" id="2Bq-7A-OD6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="133"/>
+            <point key="canvasLocation" x="68" y="132.68365817091455"/>
         </scene>
         <!--Home-->
         <scene sceneID="GV5-IP-XcC">
@@ -389,11 +405,23 @@
                                     <action selector="scanButtonPressed:" destination="YDC-yC-JhD" eventType="touchUpInside" id="1d6-NS-tqv"/>
                                 </connections>
                             </button>
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7J-xD-q0L">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kj0-WK-beJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TBp-Nu-Bzs" firstAttribute="leading" secondItem="FAz-vQ-BPp" secondAttribute="leading" constant="32" id="A0i-sz-A2S"/>
                             <constraint firstItem="zNK-nu-e7i" firstAttribute="leading" secondItem="FAz-vQ-BPp" secondAttribute="leading" constant="32" id="CMr-Cw-JQX"/>
+                            <constraint firstItem="o7J-xD-q0L" firstAttribute="leading" secondItem="RL0-JW-9JR" secondAttribute="leading" id="Eyr-lm-m87"/>
+                            <constraint firstAttribute="trailing" secondItem="o7J-xD-q0L" secondAttribute="trailing" id="H5W-7Z-zxq"/>
+                            <constraint firstItem="o7J-xD-q0L" firstAttribute="top" secondItem="RL0-JW-9JR" secondAttribute="top" id="KrI-sS-50Y"/>
+                            <constraint firstAttribute="bottom" secondItem="o7J-xD-q0L" secondAttribute="bottom" id="QPN-7d-LMc"/>
                             <constraint firstItem="FAz-vQ-BPp" firstAttribute="trailing" secondItem="zNK-nu-e7i" secondAttribute="trailing" constant="32" id="SqM-VG-aVO"/>
                             <constraint firstItem="FAz-vQ-BPp" firstAttribute="trailing" secondItem="TBp-Nu-Bzs" secondAttribute="trailing" constant="32" id="kPP-Qa-moa"/>
                             <constraint firstItem="TBp-Nu-Bzs" firstAttribute="top" secondItem="zNK-nu-e7i" secondAttribute="bottom" constant="16" id="uXE-hE-yUO"/>
@@ -403,6 +431,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AdP-AV-IJa"/>
                     <connections>
+                        <outlet property="blurView" destination="o7J-xD-q0L" id="WQA-m5-3yC"/>
                         <outlet property="containerView" destination="zNK-nu-e7i" id="Ek3-Lt-JlE"/>
                         <outlet property="informationLabel" destination="zdp-To-7OV" id="dtf-eN-0gd"/>
                         <outlet property="scanButton" destination="TBp-Nu-Bzs" id="O8W-gY-2qe"/>

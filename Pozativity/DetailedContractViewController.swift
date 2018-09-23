@@ -92,7 +92,7 @@ class DetailedContractViewController: UIViewController {
         deadlineTitleLabel.textColor = .mgVodafone
         
         showPDFButton.setUp(withColor: .mgInformative)
-        signDocumentButton.setUp(withColor: .mgPrimary)
+        signDocumentButton.setUp(withColor: .mgInformative)
         declineButton.setUp(withColor: .mgDestructive)
         
         showPDFButton.layer.setUpShadow()
