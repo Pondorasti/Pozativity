@@ -14,5 +14,6 @@ target 'Pozativity' do
   pod 'Alamofire', '~> 4.7'
   pod 'NVActivityIndicatorView'
   pod 'lottie-ios'
+  pod 'DropDown', '~> 2.3.2'
 
 end

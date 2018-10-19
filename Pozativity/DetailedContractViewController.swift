@@ -46,10 +46,10 @@ class DetailedContractViewController: UIViewController {
         UIView.animate(withDuration: 0.25, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.75, options: [], animations: {
             self.declineButton.transform = .identity
         }) { (_) in
-            let ac = UIAlertController(title: "Decline Contract", message: "Are you sure you want to continue?", preferredStyle: .alert)
+            let ac = UIAlertController(title: "Appointment", message: "Are you sure you want to continue?", preferredStyle: .alert)
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "Decline", style: .destructive, handler: { (_) in
+            ac.addAction(UIAlertAction(title: "Continue", style: .destructive, handler: { (_) in
                 ContractService.declineContract(self.contract)
                 self.navigationController?.popViewController(animated: true)
             }))
@@ -87,9 +87,7 @@ class DetailedContractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        title = "Contract"
+        title = "Appointment"
         view.backgroundColor = .mgGray
         
         containerView.layer.cornerRadius = Constants.cornerRadius

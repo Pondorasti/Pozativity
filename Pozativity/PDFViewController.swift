@@ -17,8 +17,10 @@ class PDFViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        webView.load(URLRequest(url: urlToShow))
+        
+        guard let path = Bundle.main.url(forResource: "Prescription", withExtension: "pdf") else { return }
+        webView.loadFileURL(path, allowingReadAccessTo: path)
+        
         // Do any additional setup after loading the view.
     }
     

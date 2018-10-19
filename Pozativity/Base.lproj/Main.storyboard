@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project - Faceify" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-4l-3B4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project - My pill" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCe-4l-3B4">
                                 <rect key="frame" x="16" y="36" width="343" height="31.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
@@ -113,6 +113,21 @@
             </objects>
             <point key="canvasLocation" x="-297" y="133"/>
         </scene>
+        <!--Create Appointment View Controller-->
+        <scene sceneID="ZTl-nS-Tnc">
+            <objects>
+                <viewController id="ji3-oo-yf2" customClass="CreateAppointmentViewController" customModule="Pozativity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1jd-Rk-d2k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5r8-tx-9fM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aa6-2o-WhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2885" y="-593"/>
+        </scene>
         <!--Home-->
         <scene sceneID="GV5-IP-XcC">
             <objects>
@@ -158,14 +173,14 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="XI0-zH-7dm">
                                                                     <rect key="frame" x="0.0" y="46.5" width="327" height="14.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Deadline:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Giu-DR-l9f">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="53" height="14.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Due Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Giu-DR-l9f">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="14.5"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="11.11.2011" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="226-br-GfY">
-                                                                            <rect key="frame" x="55" y="0.0" width="272" height="14.5"/>
+                                                                            <rect key="frame" x="58" y="0.0" width="269" height="14.5"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -214,6 +229,7 @@
                     <connections>
                         <outlet property="contractsTableView" destination="BCd-Hr-NZA" id="5TE-Y1-yAq"/>
                         <segue destination="F96-W4-RLS" kind="show" identifier="showDetailedContract" id="lSX-sn-EB1"/>
+                        <segue destination="ji3-oo-yf2" kind="show" identifier="create" id="oFk-vR-66b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aE-D9-Icy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,16 +268,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="pXT-Ta-LOI">
-                                                <rect key="frame" x="0.0" y="54.5" width="96.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="54.5" width="96" height="18"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deadline:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNF-Vw-djb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNF-Vw-djb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="18"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xiC-Fe-wqN">
-                                                        <rect key="frame" x="66.5" y="0.0" width="30" height="18"/>
+                                                        <rect key="frame" x="66" y="0.0" width="30" height="18"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -296,7 +312,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXX-Je-bnn">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <state key="normal" title="Sign Document"/>
+                                                <state key="normal" title="View Medical Receipt"/>
                                                 <connections>
                                                     <action selector="signDocumentButtonPressed:" destination="F96-W4-RLS" eventType="touchUpInside" id="bfG-qE-h81"/>
                                                 </connections>
@@ -304,7 +320,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8M-le-fT4">
                                                 <rect key="frame" x="0.0" y="49" width="343" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                <state key="normal" title="Decline"/>
+                                                <state key="normal" title="Cancel Appointment"/>
                                                 <connections>
                                                     <action selector="declineButtonPressed:" destination="F96-W4-RLS" eventType="touchUpInside" id="0bD-QG-Iwm"/>
                                                 </connections>
@@ -436,11 +452,12 @@
                         <outlet property="containerView" destination="zNK-nu-e7i" id="Ek3-Lt-JlE"/>
                         <outlet property="informationLabel" destination="zdp-To-7OV" id="dtf-eN-0gd"/>
                         <outlet property="scanButton" destination="TBp-Nu-Bzs" id="O8W-gY-2qe"/>
+                        <segue destination="WGo-Ge-iNL" kind="show" identifier="showPDF2" id="tQN-iE-rQa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdK-VC-mSQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5719.1999999999998" y="482.60869565217394"/>
+            <point key="canvasLocation" x="4532" y="572"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nio-Uf-nVS">
@@ -474,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3N7-Jw-10b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4780" y="-271.21439280359823"/>
+            <point key="canvasLocation" x="5164" y="-285"/>
         </scene>
         <!--Home-->
         <scene sceneID="OrJ-m8-dCz">
@@ -501,6 +518,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="LxQ-S8-W7u" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J3g-dd-vae">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -683,4 +701,7 @@
         <image name="history-clock-button" width="28" height="28"/>
         <image name="writing" width="26" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tQN-iE-rQa"/>
+    </inferredMetricsTieBreakers>
 </document>

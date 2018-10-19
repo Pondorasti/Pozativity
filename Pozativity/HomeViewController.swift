@@ -15,9 +15,12 @@ class HomeViewController: UIViewController {
     
     var contracts = [Contract]()
     var selectedRowIndex: Int = 0
+    var notTrusted: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Appointments"
 
         contractsTableView.dataSource = self
         contractsTableView.delegate = self
@@ -30,6 +33,9 @@ class HomeViewController: UIViewController {
         StorageService.isUserTrusted(completion: { (isTrusted) in
             if !isTrusted {
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(self.showQR))
+                self.notTrusted = true
+                self.contractsTableView.reloadData()
+                
             }
         })
     }
@@ -37,10 +43,13 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        ContractService.retrieveContracts { (contracts) in
-            self.contracts = contracts
-            self.contractsTableView.reloadData()
+        if !notTrusted {
+            ContractService.retrieveContracts { (contracts) in
+                self.contracts = contracts
+                self.contractsTableView.reloadData()
+            }
         }
+        
     }
     
     @objc func showQR() {
@@ -53,11 +62,6 @@ class HomeViewController: UIViewController {
             navigationController?.pushViewController(qrVC, animated: true)
             
         }
-        
-        if let newVC = storyboard?.instantiateViewController(withIdentifier: "mail") {
-            
-        }
-        
     }
     
     func generateQRCode(from string: String) -> UIImage? {
@@ -76,7 +80,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func addContract() {
-        guard let path = Bundle.main.url(forResource: "contract1", withExtension: "pdf"),
+        guard let path = Bundle.main.url(forResource: "consultation", withExtension: "pdf"),
             let document = PDFDocument(url: path) else { return }
         
         struct DummyContract {
@@ -85,14 +89,13 @@ class HomeViewController: UIViewController {
             var title: String
         }
         
-        var dummyData: [DummyContract] = [DummyContract(deadline: "25/9/2018", contractor: "Vodafone", title: "RED 12"),
-                                          DummyContract(deadline: "29/9/1018", contractor: "Vodafone", title: "RED 15"),
-                                          DummyContract(deadline: "25/9/2018", contractor: "Vodafone", title: "RED 19"),
-                                          DummyContract(deadline: "7/10/2018", contractor: "Vodafone", title: "Super RED 25"),
-                                          DummyContract(deadline: "9/10/2018", contractor: "Vodafone", title: "Smart 8"),
-                                          DummyContract(deadline: "13/10/2018", contractor: "Vodafone", title: "Smart 10"),
-                                          DummyContract(deadline: "2/11/2018", contractor: "Vodafone", title: "Acord GDPR"),
-                                          DummyContract(deadline: "18/11/2018", contractor: "ICHB", title: "Contract Scoala")]
+        var dummyData: [DummyContract] = [DummyContract(deadline: "25/10/2018", contractor: "Medlife", title: "Heart Inspection"),
+                                          DummyContract(deadline: "29/10/1018", contractor: "State Hospital", title: "Hepatitis B vaccine"),
+                                          DummyContract(deadline: "25/10/2018", contractor: "State Hospital", title: "Brain Aging"),
+                                          DummyContract(deadline: "7/11/2018", contractor: "State Hospital", title: "Osteoporosis"),
+                                          DummyContract(deadline: "9/11/2018", contractor: "Medlife", title: "Cancer Risk"),
+                                          DummyContract(deadline: "13/11/2018", contractor: "State Hospital", title: "Allergies Test"),
+                                          DummyContract(deadline: "2/12/2018", contractor: "My Pill", title: "GDPR")]
         
         dummyData.shuffle()
         for data in dummyData {
@@ -102,6 +105,7 @@ class HomeViewController: UIViewController {
         }
         
         
+//        performSegue(withIdentifier: "create", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,7 +119,7 @@ class HomeViewController: UIViewController {
             
             destination.contract = contracts[selectedRowIndex]
         default:
-            fatalError("unknown id")
+            print("poof")
         }
     }
 }
@@ -123,7 +127,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contracts.count
+        if notTrusted {
+            return 0
+        } else {
+            return contracts.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

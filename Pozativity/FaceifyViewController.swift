@@ -58,7 +58,7 @@ class FaceifyViewController: UIViewController {
         picturesTaken = 0
         title = "Sign Document"
         
-        informationLabel.text = "Verify identity by scanning your id card, make sure you take a clear picture."
+        informationLabel.text = "To get acces to the medical prescription please verify identity by scanning your id card, make sure you take a clear picture."
         informationLabel.textColor = UIColor.mgSubtitle
         
         view.backgroundColor = .mgGray
@@ -91,7 +91,10 @@ class FaceifyViewController: UIViewController {
         if showSucces {
             view.addSubview(self.succesLottie)
             succesLottie.play(completion: { (_) in
-                self.navigationController?.popToRootViewController(animated: true)
+                
+                self.informationLabel.text = "Identity verified"
+                self.performSegue(withIdentifier: "showPDF2", sender: nil)
+                
             })
             
         } else {
@@ -156,7 +159,9 @@ extension FaceifyViewController: UIImagePickerControllerDelegate {
             StorageService.uploadBuletin(pickedImage, at: ref) { (url) in
                 if self.picturesTaken == 2 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
-                        self.APIRequest()
+//                        self.APIRequest()
+                        
+                        self.hideAnimation(andShowSucces: true)
                     })
                 }
             }

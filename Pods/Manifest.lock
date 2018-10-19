@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - DropDown (2.3.3)
   - Firebase/Auth (5.6.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.0.3)
@@ -107,6 +108,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - DropDown (~> 2.3.2)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -118,6 +120,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - DropDown
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -142,6 +145,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  DropDown: 3ed140d49e2cdac81a7eea0ae2c63e8c5f408cac
   Firebase: 75ea9e232eefa158c1049028030b8f661a2ccb62
   FirebaseAnalytics: 993577e91157feb40945abedd6ab346d8a4b6ac8
   FirebaseAuth: 657a25e4be044d2d333663ebf515a861c5a59cd7
@@ -164,6 +168,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 0a9a858c1c50b84978390ce33491941e3e7fef3a
+PODFILE CHECKSUM: 4692a248d8ab8d02a2ddf0327d2f06231099f1db
 
 COCOAPODS: 1.5.3

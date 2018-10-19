@@ -38,7 +38,6 @@ struct StorageService {
     }
     
     static func uploadBuletin(_ image: UIImage, at reference: StorageReference, completion: @escaping (URL?) -> ()) {
-    
         guard let imageData = image.jpegData(compressionQuality: 0.69) else {
             return completion(nil)
         }
@@ -66,7 +65,6 @@ struct StorageService {
         ref.getMetadata { (metadata, error) in
             if let error = error {
                 completion(false)
-                assertionFailure(error.localizedDescription)
             }
             completion(true)
         }
