@@ -1,2 +1,24 @@
 # Pozativity
-MegaHack Techfest Hackathon iOS app
+Techfest - MegaHack 24h Hackathon iOS app
+
+### Team
+
+- [Alexandru Turcanu](https://github.com/Pondorasti)
+- [Radu Pogonariu](https://github.com/walle256)
+- Victor Suciu
+- Andrei Preda
+
+### About 
+
+In today's world, B2C interaction is becoming more and more remote. The businessmen of today need a secure way to sign documents from anywhere. Our app let's the user to scan their ID card and authentificate with your face for allowing painless and secure contract signing over the air.
+
+### Built With
+
+- Swift
+- Alamofire
+- Xcode
+- Firebase Realtime Database & Storage
+
+### Awards
+
+- Overall 2nd Place
