@@ -1,5 +1,7 @@
 # Pozativity
-Techfest - MegaHack 24h Hackathon iOS app
+Techfest - MegaHack 24h Hackathon iOS app 
+
+[Devpost Website](https://devpost.com/software/faceify)
 
 ## Team
 
