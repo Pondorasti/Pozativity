@@ -26,11 +26,11 @@ In today's world, B2C interaction is becoming more and more remote. The business
 ### Screenshots
 
 <p align="center">
-    <img src="https://github.com/Pondorasti/RocketLaunches/blob/master/Screenshots/IMG_1123.png" width="400">
-    <img src="https://github.com/Pondorasti/RocketLaunches/blob/master/Screenshots/IMG_1124.png" width="400">
-    <img src="https://github.com/Pondorasti/RocketLaunches/blob/master/Screenshots/IMG_1125.png" width="400">
-    <img src="https://github.com/Pondorasti/RocketLaunches/blob/master/Screenshots/IMG_1126.png" width="400">
-    <img src="https://github.com/Pondorasti/RocketLaunches/blob/master/Screenshots/IMG_1126.png" width="400">
+    <img src="https://github.com/Pondorasti/Pozativity/blob/master/Screenshots/IMG_1123.PNG" width="400">
+    <img src="https://github.com/Pondorasti/Pozativity/blob/master/Screenshots/IMG_1124.png" width="400">
+    <img src="https://github.com/Pondorasti/Pozativity/blob/master/Screenshots/IMG_1125.png" width="400">
+    <img src="https://github.com/Pondorasti/Pozativity/blob/master/Screenshots/IMG_1126.png" width="400">
+    <img src="https://github.com/Pondorasti/Pozativity/blob/master/Screenshots/IMG_1126.png" width="400">
 </p>
 
 
