@@ -20,6 +20,7 @@ In today's world, B2C interaction is becoming more and more remote. The business
 - Alamofire
 - Xcode
 - Firebase Realtime Database & Storage
+- Lottie
 
 ## Awards
 
