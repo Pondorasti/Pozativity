@@ -5,10 +5,10 @@ Techfest - MegaHack 24h Hackathon iOS app
 
 ## Team
 
-- [Alexandru Turcanu](https://github.com/Pondorasti)
-- [Radu Pogonariu](https://github.com/walle256)
-- Victor Suciu
-- Andrei Preda
+- [Alexandru Turcanu](https://github.com/Pondorasti) - iOS App Engineer
+- [Radu Pogonariu](https://github.com/walle256) - Flask Server running Face Recognition AI
+- Victor Suciu - Quality Assurance & UX Master
+- Andrei Preda - Pitcher & Marketing
 
 ## About 
 
